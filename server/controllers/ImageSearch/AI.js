@@ -19,26 +19,22 @@ new ApiKeyCredentials({ inHeader: { 'Ocp-Apim-Subscription-Key': key } }), endpo
 
 const describeURL = 'https://docs.microsoft.com/en-us/azure/cognitive-services/Computer-vision/images/bw_buildings.png';
 
-function computerVision() {
-  async.series([
+// function computerVision() {
+//   return async.series([
     // primary function, all the stuff is done here
-    async function () {
+    async function computerVision() {
       // Analyze URL image
-      console.log('Analyzing URL image to describe...', describeURL.split('/').pop());
       const caption = (await computerVisionClient.describeImage(describeURL)).captions[0];
       console.log(`This may be ${caption.text} (${caption.confidence.toFixed(2)} confidence)`);
-    },
-    // callback function, I have no idea why it's here, oh well, it's in the guide so I guess smart people know better
-    function () {
-      return new Promise((resolve) => {
-        resolve();
-      })
+      return caption.text
     }
-  ], (err) => {
-    throw (err);
-  });
-}
-
-// computerVision();
+    // callback function, I have no idea why it's here, oh well, it's in the guide so I guess smart people know better
+//     function () {
+//       return new Promise((resolve) => {
+//         resolve();
+//       })
+//     }
+//   ]);
+// }
 
 module.exports = computerVision

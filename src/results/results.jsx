@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import './results.css';
 
-class Results extends Component {
-  render() {
-    return (
-      <div>
-        propez: {this.props.test}
-      </div>
-    );
-  }
+function Results() {
+
+  // // Declare a new state variable, which we'll call "count"
+  // const [count, setCount] = useState(23);
+
+  return (
+    <div className="Results">
+      
+    </div>
+  );
 }
 
 export default Results;
