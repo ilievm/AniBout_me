@@ -2,10 +2,9 @@ const http = require('http');
 const url = require("url");
 const express = require('express')
 const app = express()
-// const getData = require('./controllers/combination')
+const doTheThing = require('./controllers/combination')
 
   // for req.body
-// app.use(require('body-parser').urlencoded({ extended: false }));
 app.use(express.json())
   // for CORS
 app.use(function(req, res, next) {
@@ -14,9 +13,11 @@ app.use(function(req, res, next) {
   next();
 });
 
-
-let imageURL;
-let gifQuerry;
+async function getData (picurl) {
+  const results = await doTheThing(picurl)
+  console.log(results);
+  return results;
+}
 
 const toSend = {sup: 'yooo'}
 
@@ -25,10 +26,13 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-  console.log(req.body);
-  res.send(JSON.stringify(req.body))
+  // need to handle what if it's not url
+  //let results = getData(req.body.query)
+  // res.send(JSON.stringify(results))
 })
 
+
+
 app.listen(5000, () => {
-  console.log("i am serving a server");
+  console.log("i am serving a server 📮📮📮");
 })

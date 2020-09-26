@@ -16,25 +16,15 @@ const endpoint = 'https://anibout.cognitiveservices.azure.com/'
 const computerVisionClient = new ComputerVisionClient(
 new ApiKeyCredentials({ inHeader: { 'Ocp-Apim-Subscription-Key': key } }), endpoint);
 
+// const describeURL = 'https://docs.microsoft.com/en-us/azure/cognitive-services/Computer-vision/images/bw_buildings.png';
 
-const describeURL = 'https://docs.microsoft.com/en-us/azure/cognitive-services/Computer-vision/images/bw_buildings.png';
-
-// function computerVision() {
-//   return async.series([
-    // primary function, all the stuff is done here
-    async function computerVision() {
-      // Analyze URL image
-      const caption = (await computerVisionClient.describeImage(describeURL)).captions[0];
-      console.log(`This may be ${caption.text} (${caption.confidence.toFixed(2)} confidence)`);
-      return caption.text
-    }
-    // callback function, I have no idea why it's here, oh well, it's in the guide so I guess smart people know better
-//     function () {
-//       return new Promise((resolve) => {
-//         resolve();
-//       })
-//     }
-//   ]);
-// }
+async function computerVision(describeURL) {
+  // Analyze URL image
+  const caption = (await computerVisionClient.describeImage(describeURL)).captions[0];
+  console.log(`This may be: ${caption.text} (${caption.confidence.toFixed(2)} confidence)`);
+  const spreadedResponse = caption.split(' ');
+  const slicedResponse = spreadedResponse.slice(0,4);
+  return slicedResponse;
+}
 
 module.exports = computerVision

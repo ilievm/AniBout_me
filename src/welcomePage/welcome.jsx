@@ -5,7 +5,6 @@ class Welcome extends Component {
     return (
       <div>
         ШКЯЪ
-        <input id="inputURL" type="text"/>
         <button id="submit">Search</button>
       </div>
     );
