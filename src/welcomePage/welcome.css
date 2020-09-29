@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;1,400&display=swap');
+
+
+.container {
+  background-image: url("neurons.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 25vw;
+  text-align: center;
+  padding-top: 7%;
+}
+
+/* gradient */
+@-webkit-keyframes animationgradienttitle {
+  0% {
+    background-position: 0 1600px;
+  }
+  100% {
+    background-position: 1600px 0;
+  }
+}
+@keyframes animationgradienttitle {
+  0% {
+    background-position: 0 1600px;
+  }
+  100% {
+    background-position: 1600px 0;
+  }
+}
+.c-article__title {
+  background: -webkit-linear-gradient(left, #70a3f5, #f6fffe, #70a3f5);
+  background-size: 1600px 200px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-name: animationgradienttitle;
+          animation-name: animationgradienttitle;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+/* ------- */
+
+h1 {
+  font-family: 'Comfortaa', cursive;
+  font-size: 55px;
+  color: rgb(249, 214, 255);
+  font-weight: 300;
+  margin-bottom: 1.5vh;
+}
+
+.welcome-p {
+  font-family: 'Roboto Slab', serif;
+  color: #cae8f1;
+  font-size: 25px;
+  margin-bottom: 5vh;
+
+}
+
+.welcome-h3 {
+  font-family: 'Raleway', sans-serif;
+  color: #cae8f1;
+  font-weight: 200;
+  font-size: 35px;
+}
