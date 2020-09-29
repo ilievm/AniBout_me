@@ -6,7 +6,7 @@ class Welcome extends Component {
     return (
       <div className="container">
         <h1></h1>
-        <h1 class="c-article__title">
+        <h1 className="c-article__title">
           INTELLIGENCE OF AI FOR YOU        
         </h1>
         <p className="welcome-p">use the power of image recognition to find gifs</p>

@@ -62,7 +62,7 @@ function App() {
 
         {/* local */}
         <p>Or upload file from your computer</p>
-        <UploadImage/>
+        {/* <UploadImage/> */}
       </div>
       <Results results={results}></Results>
 
