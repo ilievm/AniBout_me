@@ -6,7 +6,7 @@
 
 body {
   background: rgb(63,147,247);
-  background: linear-gradient(152deg, rgba(63,147,247,1) 4%, rgba(89, 16, 125, 0.541) 86%);
+  background: linear-gradient(152deg, rgb(85, 161, 253) 4%, rgba(89, 16, 125, 0.541) 86%);
   background-size: cover;
   min-height: 100vh;
 }

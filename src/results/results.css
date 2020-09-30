@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;1,400&display=swap');
+
+
+.Results {
+
+}
+
+ul {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+li {
+  list-style: none;
+  transition: all 0.2s;
+  margin-bottom: -4px;
+}
+
+li:hover {
+  transform: scale(1.05);
+}
+
+.whatsThat {
+  font-family: 'Raleway', sans-serif;
+  color: #cae8f1;
+  font-weight: 200;
+  font-size: 35px;
+  text-align: center;
+}

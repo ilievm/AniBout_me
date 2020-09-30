@@ -1,0 +1,50 @@
+.input {
+  display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 50px;
+}
+
+.searchInstructions {
+  font-family: 'Comfortaa', cursive;
+  font-weight: 300;
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.637);
+}
+
+.uploadButton {
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-family: 'Comfortaa', cursive;
+  font-weight: 600;
+  font-size: 18px;
+  border: none;
+  background-color: rgba(59, 255, 141, 0.575);
+  color: rgba(27, 27, 27, 0.767);
+  transition: all 0.2s;
+}
+
+.inputFileToLoadLabel {
+  cursor: pointer;
+  border-radius: 10px;
+  margin-top: 25px;
+  padding: 15px 25px;
+  font-family: 'Comfortaa', cursive;
+  font-weight: 600;
+  font-size: 18px;
+  border: none;
+  background-color: rgba(59, 255, 141, 0.575);
+  color: rgba(27, 27, 27, 0.767);
+  transition: all 0.3s;
+}
+
+.inputFileToLoadLabel:hover {
+  background-color: rgba(243, 112, 255, 0.37);
+  transform: scale(1.1);
+}
+
+.hide {
+  visibility: hidden;
+}
+

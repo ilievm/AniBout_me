@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import {ComputerVisionClient} from '@azure/cognitiveservices-computervision';
 import {ApiKeyCredentials} from '@azure/ms-rest-js'
 import Results from '../results/results'
+import './uploadImage.css'
 const giphy = require('../ImageSearch/gf')
 
 
 const key = 'df2a046b2b024503bd3300445a6449ed';
 const endpoint = 'https://anibout.cognitiveservices.azure.com/'
+
 
 // create a connection to the AI service
 const computerVisionClient = new ComputerVisionClient(
@@ -91,8 +93,9 @@ function UploadImage(props) {
     return (
       <div>
         <div className="input">
-          <input id="inputFileToLoad" type="file" onChange={return64} />
-          <div id="imgTest"></div>
+        <p className="searchInstructions">Or upload a file from your device</p>
+        <label htmlFor="inputFileToLoad" className="inputFileToLoadLabel">HERE</label>
+          <input className="hide" id="inputFileToLoad" type="file" onChange={return64} />
         </div>
         <Results results={results}></Results>
       </div>

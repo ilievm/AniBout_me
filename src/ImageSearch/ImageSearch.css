@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;600&display=swap');
+
+
+.searchDiv {
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 50px;
+}
+
+.searchInstructions {
+  font-family: 'Comfortaa', cursive;
+  font-weight: 300;
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.637);
+}
+
+#inputURL {
+  border: none;
+  outline: none;
+  width: 60%;
+  padding: 10px 25px;
+  font-size: 25px;
+  background-color: rgba(255, 255, 255, 0.294);
+  color: rgba(71, 47, 71, 0.89);
+  transition: all 0.2s;
+  border-radius: 15px;
+}
+
+#inputURL:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.534);
+  padding: 12px 28px;
+  -webkit-box-shadow: 10px 10px 39px -7px rgba(255,255,255,1);
+-moz-box-shadow: 10px 10px 39px -7px rgba(255,255,255,1);
+box-shadow: 10px 10px 39px -7px rgba(255,255,255,1);
+}
+
+.searchButton {
+  border-radius: 10px;
+  margin-top: 25px;
+  padding: 10px 20px;
+  font-family: 'Comfortaa', cursive;
+  font-weight: 600;
+  font-size: 18px;
+  border: none;
+  background-color: rgba(59, 255, 141, 0.575);
+  color: rgba(27, 27, 27, 0.767);
+  transition: all 0.2s;
+}
+
+.searchButton:hover {
+  background-color: rgba(242, 93, 255, 0.699);
+  transform: scale(1.1);
+}

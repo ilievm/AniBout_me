@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import  './ImageSearch.css'
 import computerVision from './AI_URL';
 import Results from '../results/results'
 
@@ -21,12 +22,10 @@ function ImageSearch(props) {
   }
   
     return (
-      <div>
-        SEARCH IMAGE URL
-        <div className="input">
-          <input id="inputURL" type="text" value={input} onChange={handleChange} required/>
-          <button onClick={handleSearch}>SUBMIT</button>
-        </div>
+      <div className="searchDiv">
+        <p className="searchInstructions">Search image URL</p>
+        <input id="inputURL" type="text" value={input} onChange={handleChange} required/>
+        <button className="searchButton" onClick={handleSearch}>SUBMIT</button>
         <Results results={results}></Results>
       </div>
     );

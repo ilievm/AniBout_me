@@ -28,12 +28,8 @@ function App() {
     <div className="App">
       <Welcome></Welcome>
       <ImageSearch></ImageSearch>
-      <div>
-        {/* local */}
-        <p>Or upload file from your computer</p>
-        <UploadImage/>
-      </div>
-
+      <UploadImage/>
+      {/* <footer>Created by Mykhailo Iliev</footer> */}
     </div>
   );
 }
