@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import './results.css';
 
 function Results(props) {
-  console.log("HEEEEEEEEEEEY 🥏: ", props.results);
   return (
     <div className="Results">
+      {props.results.what?<div><p>This looks like {props.results.what}</p></div>:null}
+        
+      
       <ul>
-        {props.results?props.results.map(el => {
-          console.log(el);
-          return (<li>
-            <img src={el} alt="one of the gifs" width="250" />
+        {props.results.gifResults?props.results.gifResults.map(el => {
+          return (<li key={`${el[35]}${el[50]}${el[60]}${el[70]}}`}>
+            <img src={el} alt="one of the gifs" width="450" />
           </li>)
         }):null}
       </ul>

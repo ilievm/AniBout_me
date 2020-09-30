@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import {ComputerVisionClient} from '@azure/cognitiveservices-computervision';
 import {ApiKeyCredentials} from '@azure/ms-rest-js'
+import Results from '../results/results'
+const giphy = require('../ImageSearch/gf')
 
 
 const key = 'df2a046b2b024503bd3300445a6449ed';
@@ -12,6 +14,7 @@ new ApiKeyCredentials({ inHeader: { 'Ocp-Apim-Subscription-Key': key } }), endpo
 
 function UploadImage(props) {
   const [encoded64, change64] = useState("");
+  const [results, changeResults] = useState({});
 
 
   function encodeImageFileAsURL(e) {
@@ -23,8 +26,8 @@ function UploadImage(props) {
 
     fileReader.onload = function(fileLoadedEvent) {
       let srcData = fileLoadedEvent.target.result; // <--- data: base64
-      console.log("Converted Base64 version is| ", srcData);
       change64(srcData)
+      console.log(encoded64);
     }
     fileReader.readAsDataURL(fileToLoad);
     return output
@@ -54,10 +57,24 @@ function UploadImage(props) {
 
 
   async function computerVision(dataBLOB) {
-    console.log(dataBLOB);
-    const captionLocal = (await computerVisionClient.describeImageInStream(dataBLOB)).captions[0];
-    console.log(`This may be ${captionLocal.text} (${captionLocal.confidence.toFixed(2)} confidence)`);
-    alert(`This may be ${captionLocal.text} (${captionLocal.confidence.toFixed(2)} confidence)`);
+    const captionLocal = (await computerVisionClient.describeImageInStream(dataBLOB));
+    console.log(captionLocal);
+    let whatsThat;
+    if(captionLocal.captions[0]) {whatsThat = captionLocal.captions[0].text}
+    let tags = '';
+    captionLocal.tags.forEach((tag, i) => {
+      if (i<4) {
+        tags += ` ${tag}`
+      }
+    })
+
+    console.log(tags);
+    const gifResults = await giphy(tags)
+    const output = {
+      what: whatsThat,
+      gifResults: gifResults
+    }
+    changeResults(output)
   }
 
   function return64(e) {
@@ -73,9 +90,13 @@ function UploadImage(props) {
   
     return (
       <div>
-        <input id="inputFileToLoad" type="file" onChange={return64} />
-        <div id="imgTest"></div>
+        <div className="input">
+          <input id="inputFileToLoad" type="file" onChange={return64} />
+          <div id="imgTest"></div>
+        </div>
+        <Results results={results}></Results>
       </div>
+      
     );
 }
 
