@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './results.css';
 
 
@@ -9,7 +9,7 @@ function Results(props) {
         
       <ul>
         {props.results.gifResults?props.results.gifResults.map(el => {
-          return (<li key={`${el[35]}${el[50]}${el[60]}${el[70]}}`}>
+          return (<li key={Math.random().toString(32).slice(2)}>
             <img src={el} alt="one of the gifs" width="400" />
           </li>)
         }):null}

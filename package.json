@@ -1,4 +1,5 @@
 {
+  "homepage": "https://ilievm.github.io/AniBout_me/",
   "name": "anibout_me",
   "version": "0.1.0",
   "description": "reading what's on pictures with AI and showing gifs on this topic",
@@ -22,7 +23,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,5 +41,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.1.0",
+    "html-loader": "^1.3.2"
   }
 }

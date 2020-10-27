@@ -1,14 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+.App-main {
+  min-height: 94.5vh;
+}
 
 footer {
-  font-family: 'Comfortaa', cursive;
-  font-weight: 300;
-  color: azure;
-  background-color: rgb(21, 7, 44);
-  position: relative;
-  bottom: 0;
-  padding: 6px;
-  font-size: smaller;
+  /* position: absolute;
+  bottom: 0; */
   width: 100%;
-  text-align: right;
+  background-color: #090e1f;
+  text-align: center;
+  color: #b7bec9;
+  font-family: "Lato";
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+address {
+  font-style: normal;
+}
+
+footer p {
+  margin: 2px;
+}
+
+footer span {
+  margin: 0 1%
+}
+
+footer svg {
+  height: 20px;
+  margin: -4px 5px;
+  fill: #b7bec9ca;
+
+}
+
+footer a {
+ color: rgba(124, 104, 238, 0.781);
+ text-decoration: none;
 }

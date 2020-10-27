@@ -1,3 +1,3 @@
 # AniBout_me
 
-An app that takes an image and returns you gifs based on what's on that image.# AniBout_me
+ AniBout_me — An artificial intelligence image recognition tool that uses Image Recognition to return a list of GIFs based on image content.

@@ -3,7 +3,8 @@ import {ComputerVisionClient} from '@azure/cognitiveservices-computervision';
 import {ApiKeyCredentials} from '@azure/ms-rest-js'
 import Results from '../results/results'
 import './uploadImage.css'
-const giphy = require('../ImageSearch/gf')
+import getData from '../ImageSearch/gf'
+import Loader from '../Loader/Loader'
 
 
 const key = 'df2a046b2b024503bd3300445a6449ed';
@@ -17,6 +18,7 @@ new ApiKeyCredentials({ inHeader: { 'Ocp-Apim-Subscription-Key': key } }), endpo
 function UploadImage(props) {
   const [encoded64, change64] = useState("");
   const [results, changeResults] = useState({});
+  const [loaderState, changeLoaderState] = useState(false);
 
 
   function encodeImageFileAsURL(e) {
@@ -29,7 +31,7 @@ function UploadImage(props) {
     fileReader.onload = function(fileLoadedEvent) {
       let srcData = fileLoadedEvent.target.result; // <--- data: base64
       change64(srcData)
-      console.log(encoded64);
+      // console.log(encoded64);
     }
     fileReader.readAsDataURL(fileToLoad);
     return output
@@ -38,7 +40,7 @@ function UploadImage(props) {
 
   const makeblob = function (dataURL) {
     let BASE64_MARKER = ';base64,';
-    if (dataURL.indexOf(BASE64_MARKER) == -1) {
+    if (dataURL.indexOf(BASE64_MARKER) === -1) {
         let parts = dataURL.split(',');
         let contentType = parts[0].split(':')[1];
         let raw = decodeURIComponent(parts[1]);
@@ -59,10 +61,10 @@ function UploadImage(props) {
 
 
   async function computerVision(dataBLOB) {
+    changeLoaderState(true)
     const captionLocal = (await computerVisionClient.describeImageInStream(dataBLOB));
-    console.log(captionLocal);
     let whatsThat;
-    if(captionLocal.captions[0]) {whatsThat = captionLocal.captions[0].text}
+    if(captionLocal.captions[0]) {whatsThat = captionLocal.captions[0].text} else {whatsThat = 'unrecognizable object'}
     let tags = '';
     captionLocal.tags.forEach((tag, i) => {
       if (i<4) {
@@ -70,8 +72,8 @@ function UploadImage(props) {
       }
     })
 
-    console.log(tags);
-    const gifResults = await giphy(tags)
+    const gifResults = await getData(tags)
+    changeLoaderState(false)
     const output = {
       what: whatsThat,
       gifResults: gifResults
@@ -97,6 +99,9 @@ function UploadImage(props) {
         <label htmlFor="inputFileToLoad" className="inputFileToLoadLabel">HERE</label>
           <input className="hide" id="inputFileToLoad" type="file" onChange={return64} />
         </div>
+        {<div className="loader">
+          <Loader display={loaderState}></Loader>
+        </div>}
         <Results results={results}></Results>
       </div>
       

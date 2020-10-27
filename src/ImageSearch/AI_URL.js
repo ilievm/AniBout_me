@@ -1,13 +1,7 @@
-const async = require('async');
-const fs = require('fs');
-const https = require('https');
-const path = require("path");
-const createReadStream = require('fs').createReadStream
-const sleep = require('util').promisify(setTimeout);
+import getData from '../ImageSearch/gf'
 const ComputerVisionClient = require('@azure/cognitiveservices-computervision').ComputerVisionClient;
 const ApiKeyCredentials = require('@azure/ms-rest-js').ApiKeyCredentials;
 
-const giphy = require('./gf')
 
 
 const key = 'df2a046b2b024503bd3300445a6449ed';
@@ -20,16 +14,14 @@ new ApiKeyCredentials({ inHeader: { 'Ocp-Apim-Subscription-Key': key } }), endpo
   // Analyze URL image
 async function computerVision(describeURL) {
   const caption = (await computerVisionClient.describeImage(describeURL));
-  const whatsThat = caption.captions[0].text;
+  const whatsThat = caption.captions[0]?caption.captions[0].text:'unrecognizable object';
   let tags = '';
   caption.tags.forEach((tag, i) => {
-    if (i<4) {
+    if (i<3) {
       tags += ` ${tag}`
     }
   })
-
-  console.log(tags);
-  const gifResults = await giphy(tags)
+  const gifResults = await getData(tags);
   const output = {
     what: whatsThat,
     gifResults: gifResults
@@ -37,4 +29,4 @@ async function computerVision(describeURL) {
   return output
 }
 
-module.exports = computerVision
+export default computerVision

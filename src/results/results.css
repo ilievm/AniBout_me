@@ -1,9 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;1,400&display=swap');
-
-
-.Results {
-
-}
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 ul {
   margin-top: 50px;
@@ -23,9 +18,10 @@ li:hover {
 }
 
 .whatsThat {
-  font-family: 'Raleway', sans-serif;
-  color: #cae8f1;
-  font-weight: 200;
+  font-family: 'Lato', sans-serif;
+    color: #cae8f1;
+  font-weight: 400;
   font-size: 35px;
   text-align: center;
+  margin-top: 1%;
 }
