@@ -30,6 +30,7 @@
   }
 }
 .c-article__title {
+  z-index: 5;
   background: -webkit-linear-gradient(left, #70a3f5, #f6fffe, #70a3f5);
   background-size: 1600px 200px;
   -webkit-background-clip: text;
@@ -47,6 +48,7 @@
 /* ------- */
 
 h1 {
+  z-index: 5;
   font-family: 'Comfortaa', cursive;
   font-size: 55px;
   color: rgb(249, 214, 255);
@@ -55,14 +57,15 @@ h1 {
 }
 
 .welcome-p {
+  z-index: 5;
   font-family: 'Roboto Slab', serif;
   color: #cae8f1;
   font-size: 25px;
   margin-bottom: 5vh;
-
 }
 
 .welcome-h3 {
+  z-index: 5;
   font-family: 'Raleway', sans-serif;
   color: #cae8f1;
   font-weight: 200;

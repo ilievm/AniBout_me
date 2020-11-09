@@ -15,9 +15,11 @@ new ApiKeyCredentials({ inHeader: { 'Ocp-Apim-Subscription-Key': key } }), endpo
 async function computerVision(describeURL) {
   const caption = (await computerVisionClient.describeImage(describeURL));
   const whatsThat = caption.captions[0]?caption.captions[0].text:'unrecognizable object';
+  console.log();
+  let tagsArr = caption.tags.slice(0,5).reverse();
   let tags = '';
-  caption.tags.forEach((tag, i) => {
-    if (i<3) {
+  tagsArr.forEach((tag, i) => {
+    if (i<4) {
       tags += ` ${tag}`
     }
   })

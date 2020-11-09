@@ -17,6 +17,7 @@ margin-top: 50px;
 }
 
 #inputURL {
+  z-index: 5;
   border: none;
   outline: none;
   width: 60%;

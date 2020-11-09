@@ -71,7 +71,6 @@ function UploadImage(props) {
         tags += ` ${tag}`
       }
     })
-
     const gifResults = await getData(tags)
     changeLoaderState(false)
     const output = {

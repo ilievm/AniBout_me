@@ -1,4 +1,5 @@
 .input {
+  z-index: 5;
   display: flex;
 flex-direction: column;
 align-items: center;
@@ -6,6 +7,7 @@ margin-top: 50px;
 }
 
 .searchInstructions {
+  z-index: 5;
   font-family: 'Comfortaa', cursive;
   font-weight: 300;
   font-size: 20px;
